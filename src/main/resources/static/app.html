@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pessoas">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-store">
+	<meta http-equiv="Expires" content="-1">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CRUD - Pessoa</title>
+	
+    <link href="styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="styles/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="styles/bootstrap.css" rel="stylesheet" media="screen" />
+    
+    <link href="styles/main.css" rel="stylesheet" media="screen">
+    <link href="styles/angular-material.min.css" rel="stylesheet" />
+    <link href="styles/style.css" rel="stylesheet" media="screen" />
+    <link href="styles/dataTables.bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="styles/sweet-alert.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/print.css">
+    
+</head>
+
+<body class="fixed-navbar fixed-sidebar" flow-prevent-drop>
+
+	<div class="splash no-print"> 
+		<div class="color-line"></div>
+		<div class="splash-title">
+			<h1>CRUD - Pessoa</h1>
+			<p>Sistema para cadastro de pessoa. </p>
+			<div class="spinner"> 
+				<div class="rect1"></div> 
+				<div class="rect2"></div> 
+				<div class="rect3"></div> 
+				<div class="rect4"></div> 
+				<div class="rect5"></div> 
+			</div> 
+		</div> 
+	</div>
+	
+	<div id="header" class="hidden-print no-print">
+		<div class="color-line"></div>
+		<div id="logo" class="light-version">
+        	<span>CRUD - Pessoa</span>
+    	</div>
+		<nav role="navigation">
+        	<div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+        	<div class="small-logo">
+	            <span class="text-primary">CRUD - Pessoa</span>
+	        </div>
+	         
+        </nav>
+	</div>
+	
+	<aside id="menu" class="hidden-print no-print">
+		<div id="navigator">
+			<div class="profile-picture">
+            	<a href="index.html">
+                	<img src="img/pessoa.jpg" class="img-circle m-b" alt="logo">
+            	</a>
+
+            	<div class="stats-label text-color">
+                	<span class="font-extra-bold font-uppercase">Secretaria de Saúde</span>
+                	<br clear="both" />
+                	<small class="text-muted">Administrador</small>
+            	</div>
+        	</div>
+		</div>
+		<nav class="sidebar-nav" ng-controller="NavController" role="navigation">
+		<ul class="nav" id="side-menu">
+			<li ng-class="{active: matchesRoute('')}">
+                <a href="#/"> <span class="nav-label">Home</span> </a>
+            </li>
+            <li>
+                <a href="#"><span class="nav-label">Pessoa</span><span class="fa arrow"></span> </a>
+                <ul class="nav nav-second-level">
+                	<li><a ng-class="{active: matchesRoute('Pessoa')}" href="#/Pessoa" data-toggle="offcanvas">Cadastrar Pessoa</a></li>
+                </ul>
+            </li>
+		</ul>
+		</nav>
+	</aside>
+	
+	<div id="wrapper">
+		
+		<div ng-controller="FlashController" class="alert alert-dismissible no-print" ng-class="'alert-' + flash.getMessage().cssClass" role="alert" ng-show="showAlert">
+    		<button type="button" class="close" ng-click="hideAlert()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    		{{flash.getMessage().text}}
+		</div>
+		
+		<div ng-controller="HeaderBoxController" class="normalheader transition animated fadeIn no-print">
+    		<div class="hpanel">
+    			<div class="panel-body">
+    				<a class="small-header-action" href="">
+						<div class="clip-header">
+							<i class="fa fa-arrow-up"></i>
+						</div>
+					</a>
+
+    				<h2 class="font-light m-b-xs">{{title}}</h2>
+    				<small>{{subtitle}}</small>
+    			</div>
+    		</div>
+    	</div>
+    	
+    	<div id="main" ng-view></div>
+
+		<footer class="footer">
+			<span class="pull-right"> CRUD - Pessoa </span> 2018
+		</footer>
+	</div>
+    
+    <script src="scripts/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="scripts/vendor/jquery-2.1.1.js"></script>
+    <script src="scripts/vendor/bootstrap.js"></script>
+    <script src="scripts/vendor/angular.js"></script>
+    <script src="scripts/vendor/angular-route.js"></script>
+    <script src="scripts/vendor/angular-resource.js"></script>
+    <script src="scripts/vendor/angular-animate.min.js"></script>
+    <script src="scripts/vendor/angular-aria.min.js"></script>
+    <script src="scripts/vendor/angular-messages.min.js"></script>
+    <script src="scripts/vendor/svg-assets-cache.js"></script>
+    <script src="scripts/vendor/angular-material.min.js"></script>
+    <script src="scripts/vendor/ngMask.js"></script>
+    <script src="scripts/vendor/moment.js"></script>
+    <script src="scripts/vendor/sweetalert.min.js"></script>
+    <script src="scripts/vendor/jquery.bootstrap.wizard.min.js"></script>
+    <script src="scripts/vendor/html2canvas.js"></script>
+    <script src="scripts/vendor/ng-flow-standalone.min.js"></script>
+    <script src="scripts/vendor/jquery.countdown360.js"></script>
+    <script src="scripts/vendor/mascaras.js"></script>
+    
+    <script src="scripts/sparkline.js"></script>
+    <script src="scripts/metismenu.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/offcanvas.js"></script>
+    
+    <script src="scripts/directives/datepicker.js"></script>
+    
+    <script src="scripts/filters/startFromFilter.js"></script>
+    
+    <script src="scripts/services/flash.js"></script>
+    
+    <script src="scripts/controllers/headerBoxController.js"></script>
+    
+    <script src="scripts/controllers/flashController.js"></script>
+    
+    <script src="scripts/controllers/pessoa/conPessoaController.js"></script>
+    <script src="scripts/controllers/pessoa/cadPessoaController.js"></script>
+    <script src="scripts/controllers/pessoa/editPessoaController.js"></script>
+    
+</body>
+</html>
