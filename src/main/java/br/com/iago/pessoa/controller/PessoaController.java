@@ -1,6 +1,5 @@
 package br.com.iago.pessoa.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,14 +45,14 @@ public class PessoaController {
 
 	}
 
-	@PostMapping(value = "pessoa/buscarPessoa")
+	@PostMapping(value = "/pessoa/buscarPessoa")
 	public ResponseEntity<List<Pessoa>> buscarPessoa(@RequestBody Pessoa pessoa) {
 		
 		return new ResponseEntity<List<Pessoa>>(pessoaService.buscarPessoa(pessoa), HttpStatus.OK);
 
 	}
 	
-	@GetMapping(value="pessoa/consultarPorCodigo/{id}")
+	@GetMapping(value="/pessoa/consultarPorCodigo/{id}")
 	public ResponseEntity<Pessoa> consultarPorCodigo(@PathVariable Long id) {
 
 		return new ResponseEntity<Pessoa>(pessoaService.consultarPorCodigo(id), HttpStatus.OK);

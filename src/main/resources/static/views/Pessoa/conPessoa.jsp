@@ -39,7 +39,7 @@
 										<th>CPF</th>
 										<th>Idade</th>
 										<th>Quantidade de Telefones</th>
-										<th class="text-center" style="width: 130px;">Ações</th>
+										<th class="text-center" style="width: 130px;">AÃ§Ãµes</th>
 					                </tr>
 					            </thead>
 					            <tbody id="search-results-body">
@@ -65,13 +65,13 @@
 	  						<div class="pull-center">
 								<ul class="pagination pagination-centered" style="margin-top: 0px; margin-bottom: 0px;">
 							        <li ng-class="{disabled:currentPage == 0}">
-							            <a id="prev" href ng-click="previous()">«</a>
+							            <a id="prev" href ng-click="previous()">Â«</a>
 							        </li>
 							        <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
 							            <a href ng-bind="n + 1">1</a>
 							        </li>
 							        <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
-							            <a id="next" href ng-click="next()">»</a>
+							            <a id="next" href ng-click="next()">Â»</a>
 							        </li>
 							    </ul>
 							</div>

@@ -63,6 +63,9 @@ public class PessoaService {
 	
 	public List<Pessoa> buscarPessoa(Pessoa pessoa) {
 		
+		if(pessoa != null && pessoa.getNome() != null) {
+			pessoa.setNome("%"+pessoa.getNome().toUpperCase()+"%");
+		}
 		return pessoaRepository.buscarPessoa(pessoa.getNome(), pessoa.getCpf());
 	}
 	

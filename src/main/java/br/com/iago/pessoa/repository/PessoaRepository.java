@@ -16,7 +16,7 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 			+ " pes.cpf, pes.dataNascimento, pes.email, "
 			+ " (SELECT COUNT(*) FROM Telefone tel WHERE tel.pessoa = pes) ) "
 			+ " FROM Pessoa pes "
-			+ " WHERE (:nome IS NULL OR pes.nome LIKE %:nome) "
+			+ " WHERE (:nome IS NULL OR pes.nome LIKE :nome) "
 			+ " AND (:cpf IS NULL OR pes.cpf = :cpf)")
 	List<Pessoa> buscarPessoa(@Param("nome") String nome, @Param("cpf") String cpf);
 	
