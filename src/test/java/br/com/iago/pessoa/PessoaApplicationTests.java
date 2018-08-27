@@ -1,6 +1,8 @@
 package br.com.iago.pessoa;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
@@ -50,14 +52,18 @@ public class PessoaApplicationTests {
 		assertEquals("Iago Leal", pessoaBanco.getNome());
 	}
 	
-//	@Test
-//	public void teste1_consultarUmaPessoaPorId() {
-//		
-//	}
-//	
-//	@Test
-//	public void teste1_deletarUmaPessoaPorId() {
-//		
-//	}
+	@Test
+	public void teste3_consultarUmaPessoaPorId() {
+		Pessoa pessoa = pessoaRepository.consultarPorCodigo(1L);
+		
+		assertNotNull(pessoa);
+	}
+	
+	@Test
+	public void teste4_deletarUmaPessoaPorId() {
+		pessoaRepository.deleteById(1L);
+		
+		assertFalse(pessoaRepository.existsById(1L));
+	}
 
 }
